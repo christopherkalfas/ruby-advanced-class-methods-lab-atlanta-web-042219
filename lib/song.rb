@@ -9,18 +9,19 @@ class Song
 
   def save
     self.class.all << self
-    binding.pry
+    #binding.pry
   end
 
   def self.create
-     song = self.new
+    song = self.new
+    song.save
     song
   end 
 
   def self.new_by_name(name)
     song = self.new
     song.name = name
-    song.name
+    song
   end 
 
   def self.create_by_name(name)
@@ -57,6 +58,10 @@ class Song
     song
     @@all << song 
   end
+
+  def self.destroy_all
+    self.all.clear
+  end 
 
 
 end
